@@ -11,13 +11,13 @@ export async function filterRequest() {
     message: "Do you want to filter your movies ? (name/year/director) or quit",
   });
   if (promptfilterRequest.filterRequest === "name") {
-    await moviesFiltredByName();
+    console.log(await moviesFiltredByName());
     filterRequest();
   } else if (promptfilterRequest.filterRequest === "year") {
-    await moviesFiltredByYear();
+    console.log(await moviesFiltredByYear());
     filterRequest();
   } else if (promptfilterRequest.filterRequest === "director") {
-    await moviesFiltredByDirector();
+    console.log(await moviesFiltredByDirector());
     filterRequest();
   } else if (promptfilterRequest.filterRequest === "quit") {
     sayBye();

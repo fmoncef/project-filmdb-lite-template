@@ -3,6 +3,7 @@ const movies = JSON.parse(fs.readFileSync("./src/movies.json", "utf-8"));
 import prompts from "prompts";
 
 export async function moviesFiltredByYear() {
+  let result = "";
   const filterBy = await prompts({
     type: "text",
     name: "movieYear",
@@ -11,5 +12,8 @@ export async function moviesFiltredByYear() {
   const filterByYear = movies.filter(
     (movie) => movie.Year === parseInt(filterBy.movieYear)
   );
-  console.log(filterByYear);
+  filterByYear.map((movie) => {
+    result += movie.Name + " of " + movie.Director + "\n";
+  });
+  return result;
 }
